@@ -1,0 +1,65 @@
+<%- include("../partials/header") %>
+    <div class="container mt-5 mb-4">
+        <h1 class="text-center">My Cart</h1>
+        <hr class="hrstyle2">
+        <div class="row">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table class="table table-striped" style="border: 1px solid #BFBFBF;">
+                        <thead class="teal lighten-2 white-text">
+                            <tr>
+                                <th scope="col" class="header"></th>
+                                <th scope="col" class="header"><h5>Product</h5></th>
+                                <th scope="col" class="header"><h5>Available</h5></th>
+                                <th scope="col" class="text-center heading"><h5>Quantity</h5></th>
+                                <th scope="col"class="heading"><h5>Price</h5></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% var sum = 0; %>
+                            <% cart.forEach(function(product){  sum=sum+product.price; %>
+                            <tr class="cartlist">
+                                <td> <img class="cartimg img-fluid"
+                                        src="<%=product.image %>"
+                                        alt=""> </td>
+                                <td><%=product.title%></td>
+                                <td>In Stock</td>
+                                <td><input type="number" step="1" min="1" class="form-control" value="1"></td>
+                                <td>₹<%=product.price%></td>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-6" ><a class="btn btn-sm btn-success w-100" href="#">Buy</a></div>
+                                        <div class="col-6 pb-0"><form action="/<%= product._id %>/cartrm" method="POST">
+                                            <button type="submit" class="btn btn-sm btn-danger" href="#" style="width: 100%;"><i class="fa fa-trash"></i> Remove</button>
+                                        </form></div>
+                                    </div>
+                                    
+                                </td>
+                            </tr>
+                            <% }); %>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><strong>Total</strong> </td>
+                                <td class=""><strong>₹<%=sum%></strong></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col mb-2">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <a class="btn btn-block btn-lg btn-success" href="/">Continue Shopping</a>
+                    </div>
+                    <div class="col-sm-12 col-md-6 text-right">
+                        <a class="btn btn-block btn-lg btn-danger" href="#">Checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include("../partials/footer") %>
