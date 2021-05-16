@@ -23,22 +23,22 @@
 | Remove a Item | &#10004; | Ability of Remove a Item from the Cart |
 | Checkout | &#10004; | Ability to Checkout |
 
-# eCommerce
+# Ecomm
 
-**eCommerce** This is a sample application that demonstrates an E-commerce website using the MEN stack. The application loads 
+**Ecomm** This is a sample application that demonstrates an E-commerce website using the Node.js and Express with MongoDB as Database. The application loads 
 products a MongoDB database and displays them. Users can select to display products in a single category. Users can 
 click on any product to get more information including pricing, reviews and rating. Users can select items and 
 add them to their shopping cart
 
 ## Installation
 
-To get started  you can simply clone this `ecommerce-demo` repository and install the dependencies.
+To get started  you can simply clone this `Ecomm` repository and install the dependencies.
 
-Clone the `ecommerce-demo` repository using git:
+Clone the `Ecomm` repository using git:
 
 ```bash
-git clone https://github.com/ratracegrad/ecommerce-demo
-cd ecommerce-demo
+git clone https://github.com/kamal-20/Ecomm.git
+cd Ecomm
 ```
 
 Install dependencies with this command:
