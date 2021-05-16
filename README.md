@@ -1,7 +1,7 @@
 ![](http://imgur.com/t3teAxi.png)
 ### :handbag: A Ecommerce website
 ## Deploy
-
+https://ecomm-20.herokuapp.com
 
 ## Features
 
@@ -104,11 +104,6 @@ You can change those credentials in the `application.yaml` file. In production e
 
 **Note.:** You also can clean the sources and rebuild the sources by running `grailsw clean`
 
-## Running Test Cases
-
-You can easily run the **Test Cases** using the standalone Grails package built-in with both the API's. Just went to the home folder of one of them (`products-api` or `purchase-api`). And write on your CMD/Terminal:
-
-`grailsw test-app`
-
 ## Credits
-
+Ubaid Ahmed
+Kamlender Rathour
