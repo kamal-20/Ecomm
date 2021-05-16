@@ -58,5 +58,5 @@ npm start
 
 
 ## Credits
-Ubaid Ahmed /n
-Kamlender Rathour
+Ubaid Ahmed
+Kamlendra Rathour
