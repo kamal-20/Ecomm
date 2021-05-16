@@ -3,8 +3,8 @@
 ## Deploy (https://ecomm-20.herokuapp.com)
 
 ## Preview
+<img src="https://res.cloudinary.com/dsys26psh/image/upload/v1621157061/WhatsApp_Image_2021-05-16_at_14.48.49_emdj6d.jpg" alt="home" width="300" />     <img src="https://res.cloudinary.com/dsys26psh/image/upload/v1621157793/WhatsApp_Image_2021-05-16_at_14.48.50_sacfsd.jpg" alt="home" width="300" />     <img src="https://res.cloudinary.com/dsys26psh/image/upload/v1621157793/WhatsApp_Image_2021-05-16_at_14.48.50_1_q3jakl.jpg" alt="home" width="300" />     <img src="https://res.cloudinary.com/dsys26psh/image/upload/v1621157792/WhatsApp_Image_2021-05-16_at_14.48.51_ayv8wz.jpg" alt="home" width="300" />     <img src="https://res.cloudinary.com/dsys26psh/image/upload/v1621157792/WhatsApp_Image_2021-05-16_at_14.48.52_xucmsf.jpg" alt="home" width="300" />     <img src="https://res.cloudinary.com/dsys26psh/image/upload/v1621157792/WhatsApp_Image_2021-05-16_at_14.51.09_feywap.jpg" alt="home" width="300" />     <img src="https://res.cloudinary.com/dsys26psh/image/upload/v1621157792/WhatsApp_Image_2021-05-16_at_14.48.52_1_xhvruj.jpg" alt="home" width="300" />
 
-![Home Page]()
 
 ## Features
 
