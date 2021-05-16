@@ -1,5 +1,5 @@
 
-# :handbag: A Ecommerce website
+# 🛍️: Ecomm
 ## Deploy (https://ecomm-20.herokuapp.com)
 
 ## Features
