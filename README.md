@@ -2,6 +2,10 @@
 # 🛍️: Ecomm
 ## Deploy (https://ecomm-20.herokuapp.com)
 
+## Preview
+
+![Home Page]()
+
 ## Features
 
 <b>Products Features</b>
@@ -52,10 +56,7 @@ npm start
 ```
 
 
-### Screenshot
-
-
 
 ## Credits
-Ubaid Ahmed &
+Ubaid Ahmed /n
 Kamlender Rathour
