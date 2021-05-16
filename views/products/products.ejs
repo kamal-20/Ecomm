@@ -1,0 +1,59 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+    <div class="jumbotron card card-image" style="background-image: url(https://res.cloudinary.com/dsys26psh/image/upload/v1582815470/eberhard-grossgasteiger-xC7Ho08RYF4-unsplash_1_eleurd.jpg);">
+        <div class="container" style="text-align: center;">
+            <h1><%= category.title%></h1>
+            <p>You are looking at <%= category.title%> under <%= category.main_category%> </p>
+            <a class="btn aqua-gradient btn-lg" href="/">Home</a>
+        </div>
+    </div>
+    <div class="row ">
+            <% category.products.forEach(function(product) { %>
+                <div class="card col-lg-3 col-md-6 mb-4">
+                    <div class="view overlay">
+                        <img class="img-fluid" src="<%=product.image%>" alt="">
+                        <a href="/products/show/<%=product._id %>">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                            <div class="row">
+                                <h3 class="card-title col-9"><%=product.title %></h3>
+                                    <% if(currentUser) { %>
+                                        <% var is_wished = false; %>
+                                        <% currentUser.wishlist.forEach(function(item){ %>
+                                        <%    if(String(item)==String(product._id)){ %>
+                                        <%        is_wished = true; %>
+                                        <%    } %>
+                                        <% }); %>
+                                    <% } %>
+                                    <% if(is_wished){ %>
+                                        <form action="/wish/<%=product._id%>/rm" method="POST" class="col-3">
+                                            <button type="submit" class="btn-circle aqua"><a href="#"><i class="fas fa-heart red-text"></i></a></button>
+                                        </form>
+                                    <% } else { %>
+                                    <form action="/wish/<%= product._id %>/ad" method="POST" class="col-3">
+                                        <button type="submit" class="btn-circle aqua"><a href="#"><i class="far fa-heart"></i></a></button>
+                                    </form>
+                                    <% } %>
+                            </div>
+                            <h6 class="card-text grey-text"><%=product.stitle %></h6>
+                            <hr>
+                            <strong><h2 class="card-title">Rs. <%=product.price %></h2></strong>
+                            <hr>
+                            <% if (currentUser && product.seller.id.equals(currentUser._id)) { %>
+                            <div class="row">
+                                <div class="col-6 "><a href="/products/<%=product._id%>/edit" class="btn btn-md btn-warning w-100">Edit</a></div>
+                                <div class="col-6 "><form id="delete-form" class="" action="/products/<%=product._id%>?_method=DELETE" method="post">
+                                    <button class="btn btn-danger btn-md w-100" type="submit" name="button">Delete</button>
+                                </form></div>
+                            </div>
+                            <% } %>
+                    </div>
+                    </div>
+            <% }); %>
+    </div>
+</div>
+
+<%- include("../partials/footer") %>

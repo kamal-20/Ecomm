@@ -1,0 +1,29 @@
+<%- include("../partials/header") %>
+<form class="ui form segment" action="/category" method="POST" enctype="multipart/form-data">
+    <div class="field">
+        <label>Main Category</label>
+        <select class="ui fluid dropdown" name="category[main_category]">
+            <option value="Men's Wear">Men's Wear</option>
+            <option value="Women's Wear">Women's Wear</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Home Essentials">Home Essentials</option>
+            <option value="Sports, Books & More">Sports, Books & More</option>
+            <option value="Body Essentials">Body Essentials</option>
+    </div>
+    <div class="field">
+        <label>Title</label>
+        <input type="text" name="category[title]" placeholder="sub category">
+    </div>
+    <div class="field">
+        <label>Image</label>
+        <input type="file" name="image" accept="image/*" placeholder="Select Image">
+    </div>
+    <div class="field">
+        <div class="ui checkbox">
+            <input type="checkbox" tabindex="0" required>
+            <label>I agree to the Terms and Conditions</label>
+        </div>
+    </div>
+    <button class="ui button" type="submit">Submit</button>
+</form>
+<%- include("../partials/footer") %>

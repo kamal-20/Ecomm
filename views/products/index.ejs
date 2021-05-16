@@ -1,0 +1,202 @@
+<%- include("../partials/header") %>
+<!--Carousel Wrapper-->
+<div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
+    <!--Indicators-->
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-2" data-slide-to="1"></li>
+    </ol>
+    <!--/.Indicators-->
+    <!--Slides-->
+    <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active">
+            <div class="view">
+                <img class="d-block w-100"
+                    src="https://res.cloudinary.com/dsys26psh/image/upload/v1582230720/Untitled_design_r2586o.png"
+                    alt="First slide">
+                <div class="mask rgba-black-light"></div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <!--Mask color-->
+            <div class="view">
+                <img class="d-block w-100"
+                    src="https://res.cloudinary.com/dsys26psh/image/upload/v1582230713/Brand_rvlwno.png"
+                    alt="Second slide">
+                <div class="mask rgba-black-light"></div>
+            </div>
+        </div>
+    </div>
+    <!--/.Slides-->
+    <!--Controls-->
+    <a class="carousel-control-prev" href="#" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    <!--/.Controls-->
+</div>
+<!--/.Carousel Wrapper-->
+<div class="segment container mt-5 mb-3 ml-8 mr-8 ml-8">
+
+
+    <div class="ui placeholder segment mt-5 mb-5" id="womenwear">
+        <h1 class="category text-teal darken-2 text-uppercase"><a href="#">Women's Wear</a></h1>
+        <div class="row">
+            <% category.forEach(function(category){ %>
+            <% if(category.main_category=="Women's Wear") { %>
+            <div class="card col-lg-3 col-md-6 mb-4">
+                <div class="view overlay">
+                    <img class="img-fluid" src="<%=category.image%>" alt="">
+                    <a>
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+                <div class="card-body text-center">
+                    <h4 class="card-title"><%= category.title %></h4>
+                    <p>
+                        <a href="/products/<%= category.title %>" class="btn aqua-gradient">More</a>
+                    </p>
+                </div>
+            </div>
+            <% }; %>
+            <% }); %>
+        </div>
+    </div>
+
+
+    <div class="ui placeholder segment mt-5 mb-5 " id="menwear">
+        <h1 class="text-teal darken-2 text-uppercase"><a href="#">Men's Wear</a></h1>
+        <hr class="newhr">
+            <div class="row">
+                <% category.forEach(function(category){ %>
+                <% if(category.main_category=="Men's Wear") { %>
+                <div class="card col-lg-3 col-md-6 mb-4">
+                    <div class="view overlay">
+                        <img class="img-fluid" src="<%=category.image%>" alt="">
+                        <a>
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <div class="card-body text-center">
+                        <h4 class="card-title"><%= category.title %></h4>
+                        <p>
+                            <a href="/products/<%= category.title %>" class="btn aqua-gradient">More</a>
+                        </p>
+                    </div>
+                </div>
+                <% }; %>
+                <% }); %>
+            </div>
+    </div>
+
+    <div class="ui placeholder segment mt-5 mb-5 " id="electronics">
+        <h1 class="text-teal darken-2 text-uppercase"><a href="#">Electronics</a></h1>
+        <hr class="newhr">
+        <div class="row">
+            <% category.forEach(function(category){ %>
+            <% if(category.main_category=="Electronics") { %>
+            <div class="card col-lg-3 col-md-6 mb-4">
+                <div class="view overlay">
+                    <img class="img-fluid" src="<%=category.image%>" alt="">
+                    <a>
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+                <div class="card-body text-center">
+                    <h4 class="card-title"><%= category.title %></h4>
+                    <p>
+                        <a href="/products/<%= category.title %>" class="btn aqua-gradient">More</a>
+                    </p>
+                </div>
+            </div>
+            <% }; %>
+            <% }); %>
+        </div>
+    </div>
+
+    <div class="ui placeholder segment mt-5 mb-5 " id="homeessentials">
+        <h1 class="text-teal darken-2 text-uppercase"><a href="#">Home Essentials</a></h1>
+        <hr class="newhr">
+        <div class="row">
+            <% category.forEach(function(category){ %>
+            <% if(category.main_category=="Home Essentials") { %>
+            <div class="card col-lg-3 col-md-6 mb-4">
+                <div class="view overlay">
+                    <img class="img-fluid" src="<%=category.image%>" alt="">
+                    <a>
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+                <div class="card-body text-center">
+                    <h4 class="card-title"><%= category.title %></h4>
+                    <p>
+                        <a href="/products/<%= category.title %>" class="btn aqua-gradient">More</a>
+                    </p>
+                </div>
+            </div>
+            <% }; %>
+            <% }); %>
+        </div>
+    </div>
+
+    <div class="ui placeholder segment mt-5 mb-5 " id="sports">
+        <h1 class="text-teal darken-2 text-uppercase"><a href="#">Sports, Books & More</a></h1>
+        <hr class="newhr">
+        <div class="row">
+            <% category.forEach(function(category){ %>
+            <% if(category.main_category=="Sports, Books & More") { %>
+            <div class="card col-lg-3 col-md-6 mb-4">
+                <div class="view overlay">
+                    <img class="img-fluid" src="<%=category.image%>" alt="">
+                    <a>
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+                <div class="card-body text-center">
+                    <h4 class="card-title"><%= category.title %></h4>
+                    <p>
+                        <a href="/products/<%= category.title %>" class="btn aqua-gradient">More</a>
+                    </p>
+                </div>
+            </div>
+            <% }; %>
+            <% }); %>
+        </div>
+    </div>
+
+    <div class="ui placeholder segment mt-5 mb-5 " id="bodyessentials">
+        <h1 class="text-teal darken-2 text-uppercase"><a href="#">Body Essentials</a></h1>
+        <hr class="newhr">
+        <div class="row">
+            <% category.forEach(function(category){ %>
+            <% if(category.main_category=="Body Essentials") { %>
+            <div class="card col-lg-3 col-md-6 mb-4">
+                <div class="view overlay">
+                    <img class="img-fluid" src="<%=category.image%>" alt="">
+                    <a>
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+                <div class="card-body text-center">
+                    <h4 class="card-title"><%= category.title %></h4>
+                    <p>
+                        <a href="/products/<%= category.title %>" class="btn aqua-gradient">More</a>
+                    </p>
+                </div>
+            </div>
+            <% }; %>
+            <% }); %>
+        </div>
+    </div>
+</div>
+
+
+
+
+</div>
+
+<%- include("../partials/footer") %>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EComm</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.13.0/css/mdb.min.css" rel="stylesheet">
+    <!-- semantic ui css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js">
+    </script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.13.0/js/mdb.min.js">
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script>
+        /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+} 
+    </script>
+</head>
+<body>
+    
+    <div id="mySidebar" class="sidebar">
+        <div class="navbar navbar-dark fixed top">
+            <div class="col-10 white-text"><h3>EComm</h3></div>
+            <div class="float-right col-2"><a class="white-text text-center" onclick="closeNav()"><i class="fas fa-times"></i></a></div>
+            <div class="col-10">
+                <hr>
+                    <% if(currentUser) { %>
+                    <div class="pt-3 pb-3"><li class="nav-item text-white float-left"><%=currentUser.firstname + " " + currentUser.lastname %></li></div>
+                    <hr>
+                    <% if(currentUser.is_seller) { %>
+                        <div class="pt-3 pb-3">
+                            <li class="nav-item text-white float-left"><%= currentUser.company %></li>
+                        </div>
+                        <hr>
+                    <% }%>
+                    <% }%>
+                    <div class="pt-3 pb-3"><a href="/#menwear" onclick="closeNav()">
+                            <li class="nav-item text-white float-left ">Men's Wear</li>
+                        </a></div>
+                    <hr>
+                    <div class="pt-3 pb-3"><a href="/#womenwear" onclick="closeNav()">
+                            <li class="nav-item text-white float-left">Women's Wear</li>
+                        </a></div>
+                    <hr>
+                    <div class="pt-3 pb-3"><a href="/#electronics" onclick="closeNav()">
+                            <li class="nav-item text-white float-left">Electronics</li>
+                        </a></div>
+                    <hr>
+                    <div class="pt-3 pb-3"><a href="/#homeessentials" onclick="closeNav()">
+                            <li class="nav-item text-white float-left">Home Essentials</li>
+                        </a></div>
+                    <hr>
+                    <div class="pt-3 pb-3">
+                        <a href="/#sports" onclick="closeNav()">
+                            <li class="nav-item text-white float-left">Sport's, Books & More</li>
+                        </a>
+                    </div>
+                    <hr>
+                    <div class="pt-3 pb-3">
+                        <a href="/#bodyessentials" onclick="closeNav()">
+                            <li class="nav-item text-white float-left">Bodycares</li>
+                        </a>
+                    </div>
+                    <% if(currentUser) { %>
+                        <% if(!currentUser.is_seller) { %>
+                    <hr>
+                    <div class="pt-3 pb-3">
+                        <li class="nav-item text-white float-left"><a href="/seller" class="white-text">Sell With
+                                EComm</a></li>
+                        <% } else {%>
+                            <hr>
+                            <div class="pt-3 pb-3">
+                                <li class="nav-item text-white float-left"><a href="/seller/<%=currentUser._id%>" class="white-text">Seller
+                                        Profile</a></li>
+                        <% } %>
+                    </div>
+                    <hr>
+                    <div class="pt-3 pb-3"><li class="nav-item text-white float-left"><a href="/profile/<%=currentUser._id%>" class="text-white">Your Orders</a></li></div>
+                    <hr>
+                    <div class="pt-3 pb-3"><li class="nav-item text-white float-left"><a href="/profile/<%=currentUser._id%>" class="text-white">Your Wishlist</a></li></div>
+                    <hr>
+                    <div class="pt-3 pb-3">
+                        <li class="nav-item text-white float-left"><a href="/logout" class="text-white">Logout</a></li>
+                    </div>
+
+                    <% }%>
+            </div>
+        </div>
+    </div>
+    <nav class="mb-1 navbar navbar-expand-lg navbar-dark teal lighten-1">
+        <div class="float-left">
+            <a href="#" onclick="openNav()" class="openbtn white-text"><i class="fas fa-bars"></i></a>
+        </div>
+        <a class="navbar-brand" href="/">EComm</a>
+            <ul class="navbar-nav ml-auto nav-flex-icons">
+                <% if(!currentUser) {%>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="modal" data-target="#modalLRForm">Login</a>
+                </li>
+                <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog cascading-modal" role="document">
+                        <!--Content-->
+                        <div class="modal-content" id="#login">
+                
+                            <!--Modal cascading tabs-->
+                            <div class="modal-c-tabs">
+                
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs tabs-3 teal darken-3 " role="tablist">
+                                    <li class="nav-item text-center" style="width: 45%;">
+                                        <a class="nav-link form-head-cs active" data-toggle="tab" href="#panel7" role="tab"><i
+                                                class="fas fa-user mr-1"></i>
+                                            Login</a>
+                                    </li>
+                                    <li class="nav-item text-center" style="width: 45%;">
+                                        <a class="nav-link form-head-cs" data-toggle="tab" href="#panel8" role="tab"><i
+                                                class="fas fa-user-plus mr-1"></i>
+                                            Register</a>
+                                    </li>
+                                    <li class="nav-item" style="width: 10%;">
+                                        <button type="button" class="btn close modal-close text-center"
+                                            style="width: 100%;height: 100%; margin: auto; padding: auto;" data-dismiss="modal"
+                                            aria-label="Close">
+                                            <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                                        </button>
+                                    </li>
+                                </ul>
+                
+                                <!-- Tab panels -->
+                                <div class="tab-content">
+                                    <!--Panel 7-->
+                                    <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+                
+                                        <!--Body-->
+                                        <div class="modal-body mb-1">
+                                            <form action="/login" method="POST">
+                                                <div class="md-form form-sm mb-5">
+                                                    <i class="fas fa-user prefix"></i>
+                                                    <input type="text" id="modalname" class="form-control text-dark validate" name="username" required>
+                                                    <label for="modalname">username</label>
+                                                </div>
+                                                
+                                                <div class="md-form form-sm mb-4">
+                                                    <i class="fas fa-lock prefix"></i>
+                                                    <input type="password" id="modalLRInput11" class="form-control text-dark validate" name="password" required>
+                                                    <label for="modalLRInput11">Your password</label>
+                                                </div>
+                                                <div class="text-center mt-2">
+                                                    <button class="btn btn-info">Log in <i class="fas fa-sign-in ml-1"></i></button>
+                                                </div>
+                                                </div>
+                                            </form>
+                                        <!--Footer-->
+                                        <div class="modal-footer">
+                                            <div class="container text-center">
+                                                <p>Forgot <a href="#" class="blue-text">Password?</a></p>
+                                                <p class="text-center col-12">or sign in with:</p>
+                                                <div class="container text-center white-text">
+                                                    <a type="button" class="btn-floating mx-2 btn-circle-sm btn-fb btn-sm">
+                                                        <i class="fab fa-facebook-f"></i>
+                                                    </a>
+                                                    <a type="button" class="btn-floating mx-2 btn-tw btn-circle-sm btn-sm">
+                                                        <i class="fab fa-twitter"></i>
+                                                    </a>
+                                                    <a type="button" class="btn-floating mx-2 btn-lk btn-circle-sm btn-sm">
+                                                        <i class="fab fa-linkedin-in"></i>
+                                                    </a>
+                                                    <a type="button" class="btn-floating mx-2 btn-git btn-circle-sm btn-sm">
+                                                        <i class="fab fa-github"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                
+                                    </div>
+                                    <div class="tab-pane fade" id="panel8" role="tabpanel">
+                                        <div class="modal-body">
+                                            <form action="/register" method="POST">
+                                            <div class="md-form form-sm mb-5">
+                                                <i class="fas fa-user prefix"></i>
+                                                <input type="text" id="modalname" class="form-control text-dark validate" name="name" required>
+                                                <label for="modalname">Your name</label>
+                                            </div>
+                                            <div class="md-form form-sm mb-5">
+                                                <i class="fas fa-user prefix"></i>
+                                                <input type="text" id="modalname" class="form-control text-dark validate" name="username" required>
+                                                <label for="modalname">Username</label>
+                                            </div>
+                                            
+                                            
+                                            <div class="md-form form-sm mb-5">
+                                                <i class="fas fa-envelope prefix"></i>
+                                                <input type="email" id="modalLRInput12" class="form-control text-dark validate" name="email" required>
+                                                <label for="modalLRInput12">Your email</label>
+                                            </div>
+                                            
+                                            <label>Gender:</label>
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" class="custom-control-input" id="defaultInline1" name="gender" value="male">
+                                                <label class="custom-control-label" for="defaultInline1">Male</label>
+                                            </div>
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" class="custom-control-input" id="defaultInline2" name="gender" value="female">
+                                                <label class="custom-control-label" for="defaultInline2">Female</label>
+                                            </div>
+                                            
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" class="custom-control-input" id="defaultInline2" name="gender" value="others">
+                                                <label class="custom-control-label" for="defaultInline3">Others</label>
+                                            </div>
+                                            
+                                            <div class="md-form form-sm mb-5">
+                                                <i class="fas fa-lock prefix"></i>
+                                                <input type="password" id="modalLRInput13" class="form-control text-dark validate" name="password" required>
+                                                <label for="modalLRInput13">Your password</label>
+                                            </div>
+                                            
+                                            <div class="text-center form-sm mt-2">
+                                                <button class="btn btn-info">Sign up <i class="fas fa-sign-in ml-1"></i></button>
+                                            </div>
+                                            
+                                            </div>
+                                            </form>
+                                            
+                                        <div class="modal-footer">
+                                            <p class="text-center col-12">or sign in with:</p><br>
+                                            <div class="container text-center white-text">
+                                                <a type="button" class="btn-floating mx-2 btn-circle-sm btn-fb btn-sm">
+                                                    <i class="fab fa-facebook-f"></i>
+                                                </a>
+                                                <a type="button" class="btn-floating mx-2 btn-tw btn-circle-sm btn-sm">
+                                                    <i class="fab fa-twitter"></i>
+                                                </a>
+                                                <a type="button" class="btn-floating mx-2 btn-lk btn-circle-sm btn-sm">
+                                                    <i class="fab fa-linkedin-in"></i>
+                                                </a>
+                                                <a type="button" class="btn-floating mx-2 btn-git btn-circle-sm btn-sm">
+                                                    <i class="fab fa-github"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <% } else { %>
+                <li class="nav-item"><a href="/cart" class="nav-link"><i class="fab fa-opencart"></i></a></li>
+                <li class="nav-item avatar">
+                    <a class="nav-link p-0" href="/profile/<%=currentUser._id%>">
+                        <img src=<%= currentUser.profile_image %> class="rounded-circle z-depth-0"
+                            alt="avatar image" height="35">
+                    </a>
+                </li>
+                <% } %>
+            </ul>
+    </nav>
+    <div class="container">
+        <% if(error && error.length > 0){ %>
+        <div class="alert alert-danger" role="alert">
+            <%= error %>
+        </div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+        <div class="alert alert-success" role="alert">
+            <%= success %>
+        </div>
+        <% } %>
+    </div>
+    <!--/.Navbar -->

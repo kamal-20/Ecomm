@@ -1,0 +1,105 @@
+<%- include("../partials/header") %>
+<div class="row">
+    <div class="col-md-4">
+        <div class="container">
+            <img class="img-fluid"
+                src="<%=product.image%>"
+                alt="img">
+            <div class="caption-full">
+                <div class="row">
+                <form action="/<%= product._id %>/cart"class="col-md-6 col-sm-6 col-lg-6" method="POST"><div><button type="submit" class="btn btn-md btn-success" href="#" style="width: 100%;">Add to cart</button></div></form>
+                <div class="col-md-6 col-sm-6 col-lg-6"><a class="btn btn-md btn-danger" href="/payments" style="width: 100%;">Buy it</a></div>
+                </div>
+                <% if (currentUser && product.seller.id.equals(currentUser._id)) { %>
+                <div class="row">
+                    <div class="col-6 "><a href="/products/<%=product._id%>/edit" class="btn btn-md btn-warning w-100">Edit</a></div>
+                    <div class="col-6 ">
+                        <form id="delete-form" class="" action="/products/<%=product._id%>?_method=DELETE" method="post">
+                            <button class="btn btn-danger btn-md w-100" type="submit" name="button">Delete</button>
+                        </form>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="ui segment">
+            <h2><%=product.title%></h2>
+            <h4 class="grey-text"><%=product.stitle%></h4s>
+            <h1 class="greeen-text"><strong>₹ <%=product.price%></strong></h1>
+            <h5 >Available Offers</h5>
+            <ul class="greeen-text">
+                <li><i class="fas fa-tag greeen-text"></i> Bank Offer 10% Instant Discount on ICICI Bank Credit and Debit Cards</li>
+                <li><i class="fas fa-tag greeen-text"></i> Bank Offer 5% Unlimited Cashback on Flipkart Axis Bank Credit Card</li>
+                <li><i class="fas fa-tag greeen-text"></i> Bank Offer Extra 5% off* with Axis Bank Buzz Credit Card</li>
+                <li><i class="fas fa-tag greeen-text"></i> Special PriceGet extra 20% off (price inclusive of discount)</li>
+            </ul>
+            <hr>
+            <h3>Product Details</h3>
+            <p><%=product.description%>
+            </p>
+            <hr>
+            <h4>Seller</h4>
+            <p><%=product.seller.company%>
+            </p>
+        </div>
+        <div class="ui placeholder segment pt-0 mb-4">
+            <div class="row ">
+                <div class="col-8"><h2>Comments</h2></div>
+                <hr>
+                <div class="ui comments container">
+                    <% product.comments.forEach(function(comment){ %>
+                        <div class="comment ">
+                            <a class="avatar">
+                                <img
+                                    src="<%= comment.author.profile_image %>">
+                            </a>
+                            <div class="content">
+                                <a class="author"><%=comment.author.username %></a>
+                                <div class="metadata">
+                                    <div class="date"><%= moment(comment.createdAt).fromNow() %></div>
+                                </div>
+                                <div class="text">
+                                    <%= comment.text %>
+                                </div>
+                            </div>
+                        </div>
+                        <% if (currentUser && comment.author.id.equals(currentUser._id)) { %>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="delete-form" action="/<%=product._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+                                    <button class="btn btn-sm btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                        <% } %>
+
+                    <% }) %>
+                    <% if(currentUser) { %>
+                    <div class="comment ">
+                        <a class="avatar">
+                            <img
+                                src="<%=currentUser.profile_image%>">
+                        </a>
+                        <div class="content">
+                            <a class="author"><%=currentUser.firstname + " " + currentUser.lastname %></a>
+                            <div class="text container">
+                                <form class="ui form" action="/<%=product._id%>/comments" method="post">
+                                    <div class="row">
+                                        <input class="col-10" type="text" name="comment[text]" placeholder="Add your Comment....">
+                                        <button class="ui button col-2" type="submit">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<%- include("../partials/footer") %>

@@ -1,0 +1,51 @@
+<%- include("../partials/header") %>
+
+<div class="ui segment">
+    <h3 class="header">Edit Product</h3>
+    <div class="card p-4">
+        <form class="ui form" action="/products/<%=product._id%>?_method=PUT" method="POST">
+            <div class="field">
+                <label>Name</label>
+                <input type="text" name="product[title]" value="<%=product.title%>">
+            </div>
+            <div class="field">
+                <label>Subtitle</label>
+                <input type="text" name="product[stitle]" value="<%=product.stitle%>">
+            </div>
+            <div class="field">
+                <label>Description</label>
+                <input type="text" name="product[description]" value="<%=product.description%>">
+            </div>
+            <div class="field">
+                <label>Brand</label>
+                <input type="text" name="product[brand]" value="<%=product.brand%>">
+            </div>
+            <div class="field">
+                <label>Category</label>
+                <select class="ui fluid dropdown" name="product[category]">
+                    <option value="Men's Wear">Men's Wear</option>
+                    <option value="Women's Wear">Women's Wear</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Home Essentials">Home Essentials</option>
+                    <option value="Sports, Books & More">Sports, Books & More</option>
+                    <option value="Body Essentials">Body Essentials</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Sub-category</label>
+                <select class="ui fluid dropdown" name="product[sub_category]">
+                    <% category.forEach(function(category){ %>
+                    <option value="<%=category.title %>"><%=category.main_category %> / <%=category.title %></option>
+                    <% }) %>
+                </select>
+            </div>
+            <div class="field">
+                <label>Price</label>
+                <input type="Number" name="product[price]" value="<%=product.price%>">
+            </div>
+            <button class="ui button" type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+<%- include("../partials/footer") %>
