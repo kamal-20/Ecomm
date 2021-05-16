@@ -25,44 +25,36 @@
 
 # eCommerce
 
-**eCommerce** it's an open source (test scenario) software made to create a easy and simple "Shop" API, where you have two micro services, one the **Products API** that stores and handles everything Related to Stock and Products. And the **Purchase API** where you can create orders (cart's) and checkout items.
-
-The purpose of this repository it's for education and test. But the code it's being coded in a proper way.
+**eCommerce** This is a sample application that demonstrates an E-commerce website using the MEN stack. The application loads 
+products a MongoDB database and displays them. Users can select to display products in a single category. Users can 
+click on any product to get more information including pricing, reviews and rating. Users can select items and 
+add them to their shopping cart
 
 ## Installation
 
-* **eCommerce** Installing 
-* **eCommerce** it's easy, the tutorial above will explain to you.
-* **eCommerce** 
+To get started  you can simply clone this `ecommerce-demo` repository and install the dependencies.
 
-You can run **eCommerce** in different ways. You can go to the [Releases Page](releases/) and download the source code of the latest release, or a bundled .war or a standalone java application (.jar).
+Clone the `ecommerce-demo` repository using git:
 
-**It's recommend see the notes on [this](#notes) section.**
+```bash
+git clone https://github.com/ratracegrad/ecommerce-demo
+cd ecommerce-demo
+```
 
-### Production
+Install dependencies with this command:
+```bash
+npm install
+```
 
-Production Environments are focused in being ready. That means, you just need execute the Jar File.
+Run the application with this command:
+```bash
+npm start
+```
 
-In the Production Environment all eCommerce API's are configured to work with **MySQL** in two databases; **productsAPI** and **purchaseAPI** and to work with a default **username and password** combination:
 
-**Note.:** Remember importing each SQL files, if using MySQL for Production. You can find them inside `products-api/src/main/sql/` and `purchase-api/src/main/sql/`
+### Screenshot
 
-* **Username:** 
-* **Password:** 
-* **Database:** 
-* **Port:** 408
 
-You can change those credentials in the `application.yaml` file. In production environments **you need import the database schema** before running the software. Both `products-api` and `purchase-api` DDL files are available on [this](sql/) folder.
-
-### Notes
-
-**Note.:** By default 
-
-**Note.:** 
-
-**Note.:** 
-
-**Note.:** 
 
 ## Credits
 Ubaid Ahmed &
