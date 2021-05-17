@@ -58,5 +58,4 @@ npm start
 
 
 ## Credits
-Ubaid Ahmed
-Kamlendra Rathour
+Images used in this project were taken from myntra..
